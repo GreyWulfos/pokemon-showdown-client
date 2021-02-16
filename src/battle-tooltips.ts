@@ -1351,6 +1351,9 @@ class BattleTooltips {
 		if (move.id === 'blizzard') {
 			value.weatherModify(0, 'Hail');
 		}
+		if (move.id === 'stoneedge') {
+			value.weatherModify(0, 'Sandstorm');
+		}
 		if (move.id === 'hurricane' || move.id === 'thunder') {
 			value.weatherModify(0, 'Rain Dance');
 			value.weatherModify(0, 'Primordial Sea');
@@ -1402,6 +1405,10 @@ class BattleTooltips {
 		if (this.battle.hasPseudoWeather('Gravity')) {
 			value.modify(5 / 3, "Gravity");
 		}
+		
+		// implementation of paralysis here??
+		if (target && target.status == 'par') value.modify(0, 'Paralysis')
+		
 		return value;
 	}
 
@@ -1434,7 +1441,7 @@ class BattleTooltips {
 		if (move.id === 'eruption' || move.id === 'waterspout' || move.id === 'dragonenergy') {
 			value.set(Math.floor(150 * pokemon.hp / pokemon.maxhp) || 1);
 		}
-		if (move.id === 'facade' && !['', 'slp', 'frz'].includes(pokemon.status)) {
+		if (move.id === 'facade' && !['', 'slp'].includes(pokemon.status)) {
 			value.modify(2, 'Facade + status');
 		}
 		if (move.id === 'flail' || move.id === 'reversal') {
@@ -1608,6 +1615,9 @@ class BattleTooltips {
 		}
 		if (this.battle.gen > 2 && serverPokemon.status === 'brn' && move.id !== 'facade' && move.category === 'Physical') {
 			if (!value.tryAbility("Guts")) value.modify(0.5, 'Burn');
+		}
+		if (serverPokemon.status === 'frz' && move.category === 'Special') {
+			value.modify(0.5, 'Frozen');
 		}
 		if (['Rock', 'Ground', 'Steel'].includes(moveType) && this.battle.weather === 'sandstorm') {
 			if (value.tryAbility("Sand Force")) value.weatherModify(1.3, "Sandstorm", "Sand Force");

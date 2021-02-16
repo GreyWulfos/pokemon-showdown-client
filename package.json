@@ -6,7 +6,7 @@
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Zarel/Pokemon-Showdown-Client.git"
+    "url": "https://github.com/GreyWulfos/Pokemon-Showdown-Client.git"
   },
   "scripts": {
     "lint": "eslint --config=.eslintrc.js --cache --cache-file=eslint-cache/base js/ && eslint --config=build-tools/.eslintrc.js --cache --cache-file=eslint-cache/build build-tools/update build-tools/build-indexes && tslint --project .",
@@ -26,6 +26,7 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-typescript": "^7.3.3",
     "google-auth-library": "^3.1.0",
+    "http-server": "^0.12.3",
     "image-size": "^0.7.2",
     "output-file-sync": "^2.0.1"
   },

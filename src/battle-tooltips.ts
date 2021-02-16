@@ -1067,6 +1067,12 @@ class BattleTooltips {
 				if (ability === 'swiftswim' && (weather === 'raindance' || weather === 'primordialsea')) {
 					stats.spe *= 2;
 				}
+				if (ability === 'sandveil' && weather === 'sandstorm') {
+					stats.def = Math.floor(3 * stats.def / 2);
+				}
+				if (ability === 'snowcloak' && weather === 'hail') {
+					stats.spd = Math.floor(3 * stats.spd / 2);
+				}
 			}
 		}
 		if (ability === 'defeatist' && serverPokemon.hp <= serverPokemon.maxhp / 2) {

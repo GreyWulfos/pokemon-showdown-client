@@ -602,7 +602,7 @@ class BattleTooltips {
 			value = this.getMoveBasePower(move, moveType, value, activeTarget);
 			text += '<p>Base power: ' + value + '</p>';
 		}
-
+		
 		let accuracy = this.getMoveAccuracy(move, value);
 
 		// Deal with Nature Power special case, indicating which move it calls.
@@ -1412,8 +1412,10 @@ class BattleTooltips {
 			value.modify(5 / 3, "Gravity");
 		}
 		
-		// implementation of paralysis here??
-		if (target && target.status == 'par') value.modify(0, 'Paralysis')
+		// para implementation
+		if (target) {
+			if (target.status === 'par') value.modify(0, 'Opponent Paralyzed.')
+		}
 		
 		return value;
 	}

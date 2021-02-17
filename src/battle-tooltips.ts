@@ -1709,6 +1709,9 @@ class BattleTooltips {
 			}
 		}
 
+		// Hail boost
+		if (this.battle.weather === 'hail' && moveType === 'Ice') value.modify(1.5, 'Hail Ice boost.');
+
 		// Terrain
 		if ((this.battle.hasPseudoWeather('Electric Terrain') && moveType === 'Electric') ||
 			(this.battle.hasPseudoWeather('Grassy Terrain') && moveType === 'Grass') ||

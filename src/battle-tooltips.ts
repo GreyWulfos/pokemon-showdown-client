@@ -1414,7 +1414,7 @@ class BattleTooltips {
 		
 		// para implementation
 		if (target) {
-			if (target.status === 'par') value.modify(0, 'Opponent Paralyzed.')
+			if (target.status === 'par') value.modify(0, 'Opponent Paralyzed.');
 		}
 		
 		return value;

@@ -32118,7 +32118,7 @@ const BattleMoveAnims: AnimTable = {
 
 // new animations
 BattleMoveAnims['slothsmash'] = {anim: BattleMoveAnims['hammerarm'].anim};
-BattleMoveAnims['frostbite'] = {anim: BattleMoveAnims['powdersnow'].anim};
+BattleMoveAnims['frostbite'] = {anim: BattleMoveAnims['icywind'].anim};
 
 // placeholder animations
 BattleMoveAnims['torment'] = {anim: BattleMoveAnims['swagger'].anim};

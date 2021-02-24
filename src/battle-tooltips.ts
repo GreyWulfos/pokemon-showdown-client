@@ -603,7 +603,7 @@ class BattleTooltips {
 			text += '<p>Base power: ' + value + '</p>';
 		}
 
-		let accuracy = this.getMoveAccuracy(move, value, foeActive[0] || null);
+		let accuracy = this.getMoveAccuracy(move, value, foeActive[0] || null); // NOT VERY GOOD, need to improve later
 
 		// Deal with Nature Power special case, indicating which move it calls.
 		if (move.id === 'naturepower') {
@@ -1128,6 +1128,9 @@ class BattleTooltips {
 		if (item === 'assaultvest') {
 			stats.spd = Math.floor(stats.spd * 1.5);
 		}
+		if (item === 'fullmetaljacket') {
+			stats.def = Math.floor(stats.def * 1.5);
+		}
 		if (item === 'deepseascale' && species === 'Clamperl') {
 			stats.spd *= 2;
 		}
@@ -1541,16 +1544,14 @@ class BattleTooltips {
 			let min;
 			let max;
 
-			if (minRatio >= 4) min = 150;
-			else if (minRatio >= 3) min = 120;
-			else if (minRatio >= 2) min = 80;
-			else if (minRatio >= 1) min = 60;
-			else min = 40;
+			if (minRatio >= 3) min = 150;
+			else if (minRatio >= 2) min = 110;
+			else if (minRatio >= 1) min = 70;
+			else min = 30;
 
-			if (maxRatio >= 4) max = 150;
-			else if (maxRatio >= 3) max = 120;
-			else if (maxRatio >= 2) max = 80;
-			else if (maxRatio >= 1) max = 60;
+			if (maxRatio >= 3) max = 150;
+			else if (maxRatio >= 2) max = 110;
+			else if (maxRatio >= 1) max = 70;
 			else max = 40;
 
 			value.setRange(min, max);

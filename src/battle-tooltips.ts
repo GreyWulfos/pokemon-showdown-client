@@ -1607,6 +1607,9 @@ class BattleTooltips {
 		if (!value.value) return value;
 
 		// Other ability boosts
+		if (pokemon.volatiles['windup']) {
+			value.abilityModify(1.5, "Wind Up");
+		}
 		if (pokemon.status === 'brn' && move.category === 'Special') {
 			value.abilityModify(1.5, "Flare Boost");
 		}
@@ -1668,7 +1671,7 @@ class BattleTooltips {
 			value.abilityModify(1.2, 'Iron Fist');
 		}
 		if (move.recoil || move.hasCrashDamage) {
-			value.abilityModify(1.2, 'Reckless');
+			value.abilityModify(1.3, 'Reckless');
 		}
 
 		if (move.category !== 'Status') {

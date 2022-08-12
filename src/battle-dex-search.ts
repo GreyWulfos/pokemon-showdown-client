@@ -1249,6 +1249,8 @@ class BattleMoveSearch extends BattleTypedSearch<'move'> {
 			return dex.gen < 4 && !moves.includes('megahorn');
 		case 'hiddenpowerpsychic':
 			return species.baseSpecies === 'Unown';
+        case 'hyperbeam': case 'gigaimpact':
+            return species.types.includes('Normal');
 		case 'hyperspacefury':
 			return species.id === 'hoopaunbound';
 		case 'hypnosis':
@@ -1272,8 +1274,6 @@ class BattleMoveSearch extends BattleTypedSearch<'move'> {
 			return !moves.includes('crunch') && !(moves.includes('knockoff') && dex.gen >= 6);
 		case 'petaldance':
 			return abilityid === 'owntempo';
-		case 'phantomforce':
-			return (!moves.includes('poltergeist') && !moves.includes('shadowclaw')) || this.formatType === 'doubles';
 		case 'poisonfang':
 			return species.types.includes('Poison') && !moves.includes('gunkshot') && !moves.includes('poisonjab');
 		case 'relicsong':
@@ -1327,9 +1327,6 @@ class BattleMoveSearch extends BattleTypedSearch<'move'> {
 		if (moveData.flags?.charge) {
 			return itemid === 'powerherb';
 		}
-		if (moveData.flags?.recharge) {
-			return false;
-		}
 		return !BattleMoveSearch.BAD_STRONG_MOVES.includes(id);
 	}
 	static readonly GOOD_STATUS_MOVES = [
@@ -1339,7 +1336,7 @@ class BattleMoveSearch extends BattleTypedSearch<'move'> {
 		'accelerock', 'acrobatics', 'aerialace', 'aquajet', 'avalanche', 'baddybad', 'barrage', 'bonemerang', 'bouncybubble', 'bulletpunch', 'buzzybuzz', 'circlethrow', 'clearsmog', 'doubleironbash', 'dragondarts', 'dragontail', 'ember', 'endeavor', 'facade', 'firefang', 'flipturn', 'freezyfrost', 'freezedry', 'frustration', 'geargrind', 'glitzyglow', 'grassknot', 'gyroball', 'hex', 'icefang', 'iceshard', 'iciclespear', 'knockoff', 'lowkick', 'machpunch', 'nightshade', 'nuzzle', 'pikapapow', 'psychocut', 'pursuit', 'quickattack', 'rapidspin',  'razorleaf', 'return', 'rockblast', 'sappyseed', 'scorchingsands', 'seismictoss', 'shadowclaw', 'shadowsneak', 'sizzlyslide', 'sparklyswirl', 'storedpower', 'stormthrow', 'suckerpunch', 'superfang', 'surgingstrikes', 'tailslap',  'thundershock', 'tripleaxel', 'uturn', 'vacuumwave', 'veeveevolley', 'voltswitch', 'watershuriken', 'weatherball',
 	] as ID[] as readonly ID[];
 	static readonly BAD_STRONG_MOVES = [
-		'beakblast', 'belch', 'burnup', 'crushclaw', 'doomdesire', 'dragonrush', 'dreameater', 'eggbomb', 'firepledge', 'flyingpress', 'futuresight', 'grasspledge', 'hyperbeam', 'hyperfang', 'hyperspacehole', 'jawlock', 'landswrath', 'lastresort', 'megakick', 'megapunch', 'mistyexplosion', 'muddywater', 'nightdaze', 'pollenpuff', 'rockclimb', 'selfdestruct', 'shelltrap', 'skyuppercut', 'slam', 'strength', 'submission', 'synchronoise', 'takedown', 'thrash', 'uproar', 'waterpledge',
+		'beakblast', 'belch', 'burnup', 'crushclaw', 'doomdesire', 'dragonrush', 'dreameater', 'eggbomb', 'firepledge', 'flyingpress', 'futuresight', 'grasspledge', 'hyperspacehole', 'jawlock', 'landswrath', 'lastresort', 'megakick', 'megapunch', 'mistyexplosion', 'muddywater', 'nightdaze', 'pollenpuff', 'rockclimb', 'selfdestruct', 'shelltrap', 'skyuppercut', 'slam', 'strength', 'submission', 'synchronoise', 'takedown', 'thrash', 'uproar', 'waterpledge',
 	] as ID[] as readonly ID[];
 	static readonly GOOD_DOUBLES_MOVES = [
 		'allyswitch', 'bulldoze', 'coaching', 'electroweb', 'faketears', 'fling', 'followme', 'healpulse', 'helpinghand', 'junglehealing', 'lifedew', 'muddywater', 'pollenpuff', 'psychup', 'ragepowder', 'safeguard', 'skillswap', 'snipeshot', 'wideguard',

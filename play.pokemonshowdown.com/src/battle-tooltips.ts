@@ -1897,7 +1897,7 @@ class BattleTooltips {
 		if (move.id === 'eruption' || move.id === 'waterspout' || move.id === 'dragonenergy') {
 			value.set(Math.floor(150 * pokemon.hp / pokemon.maxhp) || 1);
 		}
-		if (move.id === 'facade' && !['', 'slp'].includes(pokemon.status)) {
+		if (move.id === 'facade' && '' !== pokemon.status)) {
 			value.modify(2, 'Facade + status');
 		}
 		if (move.id === 'flail' || move.id === 'reversal') {

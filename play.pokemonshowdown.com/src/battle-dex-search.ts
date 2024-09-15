@@ -1455,6 +1455,8 @@ class BattleMoveSearch extends BattleTypedSearch<'move'> {
 			return dex.gen < 4 && !moves.includes('megahorn');
 		case 'hiddenpowerpsychic':
 			return species.baseSpecies === 'Unown';
+        case 'hyperbeam': case 'gigaimpact':
+            return species.types.includes('Normal');
 		case 'hyperspacefury':
 			return species.id === 'hoopaunbound';
 		case 'hypnosis':
@@ -1490,8 +1492,6 @@ class BattleMoveSearch extends BattleTypedSearch<'move'> {
 			return !moves.includes('glaiverush');
 		case 'petaldance':
 			return abilityid === 'owntempo';
-		case 'phantomforce':
-			return (!moves.includes('poltergeist') && !moves.includes('shadowclaw')) || this.formatType === 'doubles';
 		case 'poisonfang':
 			return species.types.includes('Poison') && !moves.includes('gunkshot') && !moves.includes('poisonjab');
 		case 'relicsong':

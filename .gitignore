@@ -4,7 +4,6 @@ Thumbs.db
 npm-debug.log
 /config/
 /vendor/
-<<<<<<< HEAD
 /caches/
 
 /play.pokemonshowdown.com/sprites/
@@ -15,9 +14,7 @@ npm-debug.log
 /play.pokemonshowdown.com/preactalpha.html
 /play.pokemonshowdown.com/crossprotocol.html
 /play.pokemonshowdown.com/data/
-=======
 .env
->>>>>>> ed9d86751e97675dd45f79e3aac257567dd0bd8f
 
 /play.pokemonshowdown.com/js/server/
 /play.pokemonshowdown.com/js/*.js.map
